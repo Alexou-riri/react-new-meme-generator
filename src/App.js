@@ -39,7 +39,11 @@ function App() {
       <div className="MemeGenerator">{/* <MemeGenerator /> */}</div>
       <div>
         <select
+          label="Meme template"
           onChange={onChangeValue}
+          onKeyPress={() => {
+            setValue(memes.id);
+          }}
           // const changeMeme = document.getElementsById();
           // const selectedValue = changeMeme.value;
           // setValue(selectedValue);
@@ -53,7 +57,18 @@ function App() {
             );
           })}
         </select>
-        <img src={createMeme} alt="un_meme" />
+        <img src={createMeme} alt="un_meme" data-test-id="meme-image" />
+      </div>
+      <div>
+        <label htmlFor="Top text">Top Text : </label>
+        <input
+          type="text"
+          className="top"
+          value={topText}
+          onChange={onChangeTopText}
+        />
+        <label htmlFor="Bottom text"> Bottom Text : </label>
+        <input type="text" value={bottomText} onChange={onChangeBottomText} />
       </div>
     </>
   );
