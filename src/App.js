@@ -35,17 +35,17 @@ function App() {
 
   return (
     <>
-      <div class="App">
-        <header class="App-header">
+      <div className={'App'}>
+        <header className={'App-header'}>
           {/* Header display only elements*/}
-          <h1>Meme generator</h1>
-          <h2> Have fun ! </h2>
+          <h1>{'Meme generator'}</h1>
+          <h2>{' Have fun ! '}</h2>
         </header>
       </div>
 
-      <div class="memeGenerator">
+      <div className={'memeGenerator'}>
         <select
-          label="Meme template"
+          label={'Meme template'}
           onChange={onChangeValue}
           onKeyPress={() => {
             setValue(memes.id);
@@ -63,14 +63,16 @@ function App() {
             );
           })}
         </select>
-        <img src={createMeme} alt="un_meme" data-test-id="meme-image" />
+        <img src={createMeme} alt={'un_meme'} data-test-id={'meme-image'} />
       </div>
-      <div class="inputs">
-        <label htmlFor="Top text">Top Text : </label>
-        <input className="top" value={topText} onChange={onChangeTopText} />
-        <label htmlFor="Bottom text"> Bottom Text : </label>
+      <div className={'inputs'}>
+        <label htmlFor={'Top text'}>{'Top Text : '}</label>
+        <input className={'top'} value={topText} onChange={onChangeTopText} />
+        <label htmlFor={'Bottom text'}>{' Bottom Text : '}</label>
         <input value={bottomText} onChange={onChangeBottomText} />
-        <button onClick={() => saveAs(createMeme, 'meme.jpg')}>Download</button>
+        <button onClick={() => saveAs(createMeme, 'meme.jpg')}>
+          {'Download'}
+        </button>
       </div>
     </>
   );
