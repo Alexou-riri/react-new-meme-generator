@@ -66,9 +66,9 @@ function App() {
         <img src={createMeme} alt={'un_meme'} data-test-id={'meme-image'} />
       </div>
       <div className={'inputs'}>
-        <label htmlFor={'Top text'}>{'Top Text : '}</label>
+        <label htmlFor={'Top text'}>{'Top text : '}</label>
         <input className={'top'} value={topText} onChange={onChangeTopText} />
-        <label htmlFor={'Bottom text'}>{' Bottom Text : '}</label>
+        <label htmlFor={'Bottom text'}>{' Bottom text : '}</label>
         <input value={bottomText} onChange={onChangeBottomText} />
         <button onClick={() => saveAs(createMeme, 'meme.jpg')}>
           {'Download'}
