@@ -58,7 +58,7 @@ function App() {
         >
           {memes.map((meme) => {
             return (
-              <option key={meme.id} value={meme.id}>
+              <option key={meme.id} value={meme.id} label="Meme template">
                 {meme.name}
               </option>
             );
