@@ -57,7 +57,6 @@ function App() {
           {' '}
           Meme template :
           <select
-            label="Meme template"
             onChange={onChangeValue}
             onKeyPress={() => {
               setValue(memes.id);
@@ -69,7 +68,7 @@ function App() {
           >
             {memes.map((meme) => {
               return (
-                <option key={meme.id} value={meme.id} name="Meme template">
+                <option key={meme.id} value={meme.id}>
                   {meme.name}
                 </option>
               );
