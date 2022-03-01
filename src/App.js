@@ -20,7 +20,16 @@ function App() {
       });
   }, []);
 
-  const createMeme = `https://api.memegen.link/images/${value}/${topText}/${bottomText}`;
+  // const createMeme =
+  //   `https://api.memegen.link/images/${value}/${topText}/${bottomText}.` +
+  //   '.jpg';
+
+  const createMeme =
+    'https://api.memegen.link/images/' +
+    value +
+    (topText ? '/' + topText : '') +
+    (!bottomText ? '' : !topText ? '/_/' + bottomText : '/' + bottomText) +
+    '.png';
 
   const onChangeValue = (e) => {
     setValue(e.currentTarget.value);
@@ -44,28 +53,32 @@ function App() {
       </div>
 
       <div className="memeGenerator">
-        <div>Meme template</div>
-        <select
-          label="Meme template"
-          onChange={onChangeValue}
-          onKeyPress={() => {
-            setValue(memes.id);
-          }}
-          // const changeMeme = document.getElementsById();
-          // const selectedValue = changeMeme.value;
-          // setValue(selectedValue);
-          // }}
-        >
-          {memes.map((meme) => {
-            return (
-              <option key={meme.id} value={meme.id} label="Meme template">
-                {meme.name}
-              </option>
-            );
-          })}
-        </select>
+        <label>
+          {' '}
+          Meme template :
+          <select
+            label="Meme template"
+            onChange={onChangeValue}
+            onKeyPress={() => {
+              setValue(memes.id);
+            }}
+            // const changeMeme = document.getElementsById();
+            // const selectedValue = changeMeme.value;
+            // setValue(selectedValue);
+            // }}
+          >
+            {memes.map((meme) => {
+              return (
+                <option key={meme.id} value={meme.id} name="Meme template">
+                  {meme.name}
+                </option>
+              );
+            })}
+          </select>
+        </label>
         <img src={createMeme} alt="un_meme" data-test-id="meme-image" />
       </div>
+
       <div className="inputs">
         <label htmlFor="Top text">{`Top text : `}</label>
         <input
