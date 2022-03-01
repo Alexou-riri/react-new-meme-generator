@@ -1,6 +1,7 @@
 import './App.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { saveAs } from 'file-saver';
 
 function App() {
   const [memes, setMemes] = useState([]);
@@ -27,6 +28,10 @@ function App() {
     setBottomText(e.currentTarget.value);
   };
 
+  const onDownloadClick = () => {
+    saveAs(memes, `${value}-${topText}-${bottomText}.jpg`);
+  };
+
   return (
     <>
       <div className="App">
@@ -36,8 +41,8 @@ function App() {
           <h2> Have fun ! </h2>
         </header>
       </div>
-      <div className="MemeGenerator">{/* <MemeGenerator /> */}</div>
-      <div>
+
+      <div class="memeGenerator">
         <select
           label="Meme template"
           onChange={onChangeValue}
@@ -59,7 +64,7 @@ function App() {
         </select>
         <img src={createMeme} alt="un_meme" data-test-id="meme-image" />
       </div>
-      <div>
+      <div class="inputs">
         <label htmlFor="Top text">Top Text : </label>
         <input
           type="text"
@@ -69,6 +74,7 @@ function App() {
         />
         <label htmlFor="Bottom text"> Bottom Text : </label>
         <input type="text" value={bottomText} onChange={onChangeBottomText} />
+        <button onClick={() => saveAs(createMeme, 'meme.jpg')}>Download</button>
       </div>
     </>
   );
