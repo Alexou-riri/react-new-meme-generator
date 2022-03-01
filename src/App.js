@@ -28,10 +28,6 @@ function App() {
     setBottomText(e.currentTarget.value);
   };
 
-  const onDownloadClick = () => {
-    saveAs(memes, `${value}-${topText}-${bottomText}.jpg`);
-  };
-
   return (
     <>
       <div className="App">
