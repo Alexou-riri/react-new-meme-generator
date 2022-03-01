@@ -54,8 +54,7 @@ function App() {
 
       <div className="memeGenerator">
         <label>
-          {' '}
-          Meme template :
+          Meme template
           <select
             onChange={onChangeValue}
             onKeyPress={() => {
