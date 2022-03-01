@@ -20,7 +20,7 @@ function App() {
       });
   }, []);
 
-  const createMeme = `https://api.memegen.link/images/${value}/${topText}/${bottomText}`;
+  const createMeme = `https://api.memegen.link/templates/${value}/${topText}/${bottomText}`;
 
   const onChangeValue = (e) => {
     setValue(e.currentTarget.value);
@@ -45,7 +45,7 @@ function App() {
 
       <div className={'memeGenerator'}>
         <select
-          label={'Meme template'}
+          label={`Meme template`}
           onChange={onChangeValue}
           onKeyPress={() => {
             setValue(memes.id);
