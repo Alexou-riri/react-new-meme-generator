@@ -67,9 +67,13 @@ function App() {
       </div>
       <div className={'inputs'}>
         <label htmlFor={`Top text`}>{`Top text : `}</label>
-        <input className={'top'} value={topText} onChange={onChangeTopText} />
+        <input name={'Top text'} value={topText} onChange={onChangeTopText} />
         <label htmlFor={`Bottom text`}>{`Bottom text : `}</label>
-        <input value={bottomText} onChange={onChangeBottomText} />
+        <input
+          name={'Bottom text'}
+          value={bottomText}
+          onChange={onChangeBottomText}
+        />
         <button onClick={() => saveAs(createMeme, 'meme.jpg')}>
           {'Download'}
         </button>
