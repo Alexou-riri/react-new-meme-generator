@@ -10,9 +10,14 @@ function App() {
   const [bottomText, setBottomText] = useState('');
 
   useEffect(() => {
-    axios.get('https://api.memegen.link/templates').then((res) => {
-      setMemes(res.data);
-    });
+    axios
+      .get('https://api.memegen.link/templates')
+      .then((res) => {
+        setMemes(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   const createMeme = `https://api.memegen.link/images/${value}/${topText}/${bottomText}`;
@@ -30,8 +35,8 @@ function App() {
 
   return (
     <>
-      <div className="App">
-        <header className="App-header">
+      <div class="App">
+        <header class="App-header">
           {/* Header display only elements*/}
           <h1>Meme generator</h1>
           <h2> Have fun ! </h2>
@@ -62,14 +67,9 @@ function App() {
       </div>
       <div class="inputs">
         <label htmlFor="Top text">Top Text : </label>
-        <input
-          type="text"
-          className="top"
-          value={topText}
-          onChange={onChangeTopText}
-        />
+        <input className="top" value={topText} onChange={onChangeTopText} />
         <label htmlFor="Bottom text"> Bottom Text : </label>
-        <input type="text" value={bottomText} onChange={onChangeBottomText} />
+        <input value={bottomText} onChange={onChangeBottomText} />
         <button onClick={() => saveAs(createMeme, 'meme.jpg')}>Download</button>
       </div>
     </>
