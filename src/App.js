@@ -35,17 +35,18 @@ function App() {
 
   return (
     <>
-      <div className={'App'}>
-        <header className={'App-header'}>
+      <div className="App">
+        <header className="App-header">
           {/* Header display only elements*/}
-          <h1>{'Meme generator'}</h1>
-          <h2>{' Have fun ! '}</h2>
+          <h1>Meme generator</h1>
+          <h2> Have fun ! </h2>
         </header>
       </div>
 
-      <div className={'memeGenerator'}>
+      <div className="memeGenerator">
+        <div>Meme template</div>
         <select
-          label={`Meme template`}
+          label="Meme template"
           onChange={onChangeValue}
           onKeyPress={() => {
             setValue(memes.id);
@@ -58,32 +59,29 @@ function App() {
           {memes.map((meme) => {
             return (
               <option key={meme.id} value={meme.id}>
-                {'Meme template '}
                 {meme.name}
               </option>
             );
           })}
         </select>
-        <img src={createMeme} alt={'un_meme'} data-test-id={'meme-image'} />
+        <img src={createMeme} alt="un_meme" data-test-id="meme-image" />
       </div>
-      <div className={'inputs'}>
-        <label htmlFor={`Top text`}>{`Top text : `}</label>
+      <div className="inputs">
+        <label htmlFor="Top text">{`Top text : `}</label>
         <input
-          name={'Top text'}
-          id={'Top text'}
+          name="Top text"
+          id="Top text"
           value={topText}
           onChange={onChangeTopText}
         />
-        <label htmlFor={`Bottom text`}>{`Bottom text : `}</label>
+        <label htmlFor="Bottom text">{`Bottom text : `}</label>
         <input
-          name={'Bottom text'}
-          id={'Bottom text'}
+          name="Bottom text"
+          id="Bottom text"
           value={bottomText}
           onChange={onChangeBottomText}
         />
-        <button onClick={() => saveAs(createMeme, 'meme.jpg')}>
-          {'Download'}
-        </button>
+        <button onClick={() => saveAs(createMeme, 'meme.jpg')}>Download</button>
       </div>
     </>
   );
