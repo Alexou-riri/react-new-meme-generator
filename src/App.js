@@ -20,7 +20,7 @@ function App() {
       });
   }, []);
 
-  const createMeme = `https://api.memegen.link/templates/${value}/${topText}/${bottomText}`;
+  const createMeme = `https://api.memegen.link/images/${value}/${topText}/${bottomText}`;
 
   const onChangeValue = (e) => {
     setValue(e.currentTarget.value);
@@ -58,6 +58,7 @@ function App() {
           {memes.map((meme) => {
             return (
               <option key={meme.id} value={meme.id}>
+                {'Meme template '}
                 {meme.name}
               </option>
             );
